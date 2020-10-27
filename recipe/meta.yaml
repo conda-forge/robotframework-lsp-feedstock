@@ -31,7 +31,6 @@ test:
     - pip
   imports:
     - robotframework_debug_adapter
-    - robotframework_debug_adapter.dap
     - robotframework_ls.vendored.robocorp_ls_core
 
   commands:
