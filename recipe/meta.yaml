@@ -1,4 +1,4 @@
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: robotframework-lsp
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/robotframework-lsp/robotframework-lsp-{{ version }}.tar.gz
-  sha256: ed05b86e52bfd0faef2c0a2336bb647cc761235e101beb2b51a7cc89c81abba7
+  sha256: b7f6837a56efd0e615285fef293b51f7abeabfe8ddf77ebcf0368b3c063c94cb
 
 build:
   number: 0
