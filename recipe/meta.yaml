@@ -1,17 +1,17 @@
-{% set version = "1.11.0" %}
+{% set version = "1.12" %}
 
 package:
   name: robotframework-lsp
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/robotframework-lsp/robotframework-lsp-{{ version }}.tar.gz
-  sha256: fc63766cdd92d92015f45b1f376f10932fddacc6acd01d0c5df559908561c153
+  url: https://pypi.io/packages/source/r/robotframework-lsp/robotframework_lsp-{{ version }}.tar.gz
+  sha256: 0193392693ab9545b41606aa5b7f6640690820824eb90efd923e75bb0056c66a
 
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - robotframework_ls = robotframework_ls.__main__:main
 
@@ -31,9 +31,8 @@ test:
   imports:
     - robotframework_debug_adapter
     - robotframework_ls.vendored.robocorp_ls_core
-
   commands:
-    - python -m pip check
+    - pip check
     - robotframework_ls --version
     - robotframework_ls --help
 
