@@ -1,4 +1,4 @@
-{% set version = "1.12.0" %}
+{% set version = "1.12" %}
 
 package:
   name: robotframework-lsp
@@ -11,7 +11,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - robotframework_ls = robotframework_ls.__main__:main
 
@@ -31,9 +31,8 @@ test:
   imports:
     - robotframework_debug_adapter
     - robotframework_ls.vendored.robocorp_ls_core
-
   commands:
-    - python -m pip check
+    - pip check
     - robotframework_ls --version
     - robotframework_ls --help
 
