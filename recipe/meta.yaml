@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/r/robotframework-lsp/robotframework_lsp-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/r/robotframework-lsp/robotframework_lsp-{{ version }}.tar.gz
   sha256: 9f5246e31d5bdbf52b2049b5cfa0cc497d90df87e353a10f419d28f41d2e19a3
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
@@ -18,10 +18,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - robotframework >=3.2
   run_constrained:
     - robotframework-seleniumlibary >=4.4
@@ -29,6 +29,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - robotframework_debug_adapter
     - robotframework_ls.vendored.robocorp_ls_core
